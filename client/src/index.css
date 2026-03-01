@@ -1,0 +1,549 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap");
+@import "tailwindcss";
+/* ============================================================
+   XSTN – Global Styles
+   Import this in your main entry point: import './app.css'
+   ============================================================ */
+
+/* ── FONTS ── */
+
+/* ── DESIGN TOKENS ── */
+:root {
+  --cyan: #22d3ee;
+  --violet: #a78bfa;
+  --pink: #f472b6;
+  --green: #34d399;
+  --orange: #fb923c;
+  --yellow: #fbbf24;
+  --bg: #03060f;
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: #e2e8f0;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #03060f;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.4);
+  border-radius: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes floatYB {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes gradShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes countUp {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes borderRun {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes scanDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes tiltIn {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateX(20deg) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(800px) rotateX(0deg) translateY(0);
+  }
+}
+
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   ANIMATION UTILITY CLASSES
+───────────────────────────────────────────── */
+.anim-fadeup {
+  animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+.anim-fadein {
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+}
+.anim-slidein {
+  animation: slideRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+.anim-tiltin {
+  animation: tiltIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+.anim-float {
+  animation: floatY 6s ease-in-out infinite;
+}
+.anim-floatb {
+  animation: floatYB 8s ease-in-out infinite;
+}
+.anim-spin {
+  animation: spinSlow 20s linear infinite;
+}
+.anim-pulse {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* ── Animation delay helpers ── */
+.d-0 {
+  animation-delay: 0s;
+}
+.d-1 {
+  animation-delay: 0.1s;
+}
+.d-2 {
+  animation-delay: 0.2s;
+}
+.d-3 {
+  animation-delay: 0.3s;
+}
+.d-4 {
+  animation-delay: 0.4s;
+}
+.d-5 {
+  animation-delay: 0.5s;
+}
+.d-6 {
+  animation-delay: 0.6s;
+}
+.d-7 {
+  animation-delay: 0.7s;
+}
+.d-8 {
+  animation-delay: 0.8s;
+}
+.d-9 {
+  animation-delay: 0.9s;
+}
+.d-10 {
+  animation-delay: 1s;
+}
+
+/* ── Page enter transition ── */
+.page-enter {
+  animation: fadeUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* ── Cursor blink (terminal) ── */
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+/* ── Marquee ── */
+.marquee-inner {
+  animation: marquee 28s linear infinite;
+}
+
+/* ── Progress bar ── */
+.progress-bar {
+  animation: progressFill 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+  width: 0%;
+}
+
+/* ─────────────────────────────────────────────
+   GRADIENT TEXT UTILITIES
+───────────────────────────────────────────── */
+.grad-cyan-violet {
+  background: linear-gradient(135deg, #22d3ee, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grad-shift {
+  background: linear-gradient(90deg, #22d3ee, #a78bfa, #f472b6, #22d3ee);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradShift 5s ease infinite;
+}
+
+.grad-green-cyan {
+  background: linear-gradient(135deg, #34d399, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────
+   GLASS COMPONENTS
+───────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+}
+
+.glass-cyan {
+  background: rgba(34, 211, 238, 0.05);
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  backdrop-filter: blur(20px);
+}
+
+/* ─────────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #0891b2, #7c3aed);
+  color: #fff;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px rgba(34, 211, 238, 0.3);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  transition: all 0.25s ease;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+  background: rgba(34, 211, 238, 0.06);
+}
+
+/* ─────────────────────────────────────────────
+   NAVIGATION
+───────────────────────────────────────────── */
+.nav-link {
+  color: rgba(148, 163, 184, 0.75);
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 99px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #22d3ee;
+  background: rgba(34, 211, 238, 0.08);
+}
+
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY COMPONENTS
+───────────────────────────────────────────── */
+
+/* Section label (e.g. "// What We Build") */
+.label-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #22d3ee;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.label-tag::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: #22d3ee;
+}
+
+/* Section heading */
+.section-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+}
+
+/* ─────────────────────────────────────────────
+   CARD UTILITIES
+───────────────────────────────────────────── */
+.card-lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+}
+
+/* Tag pill */
+.tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 3px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+}
+
+/* Ripple ring (CTA section) */
+.ripple-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  animation: ripple 3s ease-out infinite;
+}
+
+/* ─────────────────────────────────────────────
+   FORM ELEMENTS
+───────────────────────────────────────────── */
+.xstn-input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 0.88rem;
+  transition: all 0.25s;
+  font-family: var(--font-body);
+  width: 100%;
+  outline: none;
+}
+
+.xstn-input:focus {
+  border-color: rgba(34, 211, 238, 0.4);
+  background: rgba(34, 211, 238, 0.04);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.08);
+}
+
+.xstn-input::placeholder {
+  color: rgba(148, 163, 184, 0.4);
+}
+
+.xstn-select {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 0.88rem;
+  transition: all 0.25s;
+  font-family: var(--font-body);
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+.xstn-select:focus {
+  border-color: rgba(34, 211, 238, 0.4);
+}
+
+option {
+  background: #0f1a2e;
+}
+
+/* ─────────────────────────────────────────────
+   BACKGROUND EFFECTS
+───────────────────────────────────────────── */
+
+/* Dot/line grid overlay */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* CRT scanlines overlay */
+.scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.025) 2px,
+    rgba(0, 0, 0, 0.025) 4px
+  );
+}
+
+/* Noise texture overlay (use with position: relative) */
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.35;
+  border-radius: inherit;
+}
