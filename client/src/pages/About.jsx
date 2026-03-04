@@ -31,24 +31,21 @@ const AboutPage = ({ setPage }) => {
 
   const timeline = [
     {
-      year: "2022",
-      event:
-        "XSTN founded under Xplorevo with 15 founding members from 3 colleges.",
+      year: "2025",
+      event: "Xplorevo was founded by Harshad Harishchandra Pakhale.",
     },
     {
-      year: "2023",
+      year: "2026",
       event:
-        "First external client project shipped. Team expanded to 80+ students across 5 colleges.",
+        "XSTB chapter was started to connect student with skills to potential clients",
     },
     {
-      year: "2024",
-      event:
-        "8 service domains launched. First XSTN Hackathon — 400 participants, 72 hours, 60 projects.",
+      year: "2026",
+      event: "XSTN recruited its first team",
     },
     {
       year: "2025",
-      event:
-        "500+ members, 30+ colleges, 12 live projects. Applications open for Batch 2025.",
+      event: "First Official website for XSTN was launched",
     },
   ];
 
