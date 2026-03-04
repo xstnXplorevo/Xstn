@@ -9,9 +9,9 @@ import PartnerPage from "../pages/Partner";
 import ContactPage from "../pages/Contact";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import SignUpForm from "../components/layout/SignUp";
-import SignInForm from "../components/layout/SignIn";
 import { Navigate } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import AdminPanel from "./AdminPanel";
 
 // ─────────────────────────────────────────────────────────────
 // DESIGN TOKENS (centralized — easy to theme later)

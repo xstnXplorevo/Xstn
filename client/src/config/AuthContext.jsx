@@ -37,7 +37,7 @@ export function AuthProvider({ children }) {
       email,
       password,
       options: {
-        emailRedirectTo: "http://localhost:5173/home",
+        emailRedirectTo: import.meta.env.FRONTEND_URLs,
       },
     });
     return { data, error };
